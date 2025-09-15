@@ -20,7 +20,7 @@ const items = ref([
 const value = ref('');
 
 useSeoMeta({
-  title: 'Home',
+  title: 'Form',
 });
 </script>
 
