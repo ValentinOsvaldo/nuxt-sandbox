@@ -13,13 +13,13 @@ interface Todo {
   completed: boolean;
 }
 
-const postsQuery = await useFetch<Post[]>(
+const postsQuery = await useLazyFetch<Post[]>(
   'https://jsonplaceholder.typicode.com/posts/',
   {
     key: 'posts',
   }
 );
-const todosQuery = await useFetch<Todo[]>(
+const todosQuery = await useLazyFetch<Todo[]>(
   'https://jsonplaceholder.typicode.com/todos/',
   {
     key: 'todos',

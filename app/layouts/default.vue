@@ -17,6 +17,11 @@ const items = ref<NavigationMenuItem[]>([
     to: '/fetch',
     icon: 'i-lucide-wifi',
   },
+  {
+    label: 'Lazy components',
+    to: '/lazy',
+    icon: 'i-lucide-gauge',
+  },
 ]);
 </script>
 
