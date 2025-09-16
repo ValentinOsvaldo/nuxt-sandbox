@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const showCard = ref(false);
+const showCard = useState('show-card', () => false);
 
 useSeoMeta({
   title: 'Lazy components',

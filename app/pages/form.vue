@@ -22,6 +22,25 @@ const items = ref([
   },
 ]);
 
+const users = ref([
+  {
+    label: 'Memo',
+    id: '1',
+  },
+  {
+    label: 'Andres',
+    id: '2',
+  },
+  {
+    label: 'Colin',
+    id: '3',
+  },
+  {
+    label: 'Hector',
+    id: '4',
+  },
+]);
+
 const schema = toTypedSchema(
   z.object({
     status: z
@@ -30,6 +49,7 @@ const schema = toTypedSchema(
       .default([]),
     email: z.email().or(z.literal('')).optional().default(''),
     required: z.boolean().default(false),
+    users: z.array(z.string()).default([]),
   })
 );
 
@@ -40,6 +60,7 @@ const { defineField, errors, values, handleSubmit } = useForm({
 const [status, statusAttrs] = defineField('status');
 const [email, emailAttrs] = defineField('email');
 const [required, requiredAttrs] = defineField('required');
+const [user, userAttrs] = defineField('users');
 
 const onSubmit = handleSubmit((values) => {
   alert(JSON.stringify(values));
@@ -67,6 +88,17 @@ useSeoMeta({
           multiple
           value-key="id"
           :items="items"
+          class="w-full"
+        />
+      </UFormField>
+
+      <UFormField label="Usuario" :error="errors.users" required>
+        <UInputMenu
+          v-model="user"
+          v-bind="userAttrs"
+          multiple
+          value-key="id"
+          :items="users"
           class="w-full"
         />
       </UFormField>
