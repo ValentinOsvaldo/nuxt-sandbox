@@ -15,6 +15,14 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
+    '@pinia/nuxt',
   ],
   css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    apiUrl: process.env.API_URL,
+    public: {
+      apiUrl: process.env.API_URL,
+    },
+  },
 });
